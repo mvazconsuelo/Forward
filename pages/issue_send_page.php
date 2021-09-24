@@ -1,13 +1,18 @@
 <?php
+/*
 require_once( 'core.php' );
 require_once( 'bug_api.php' );
+*/
 $f_bug_id = gpc_get_int( 'bug_id' );
 $t_bug = bug_get( $f_bug_id, true );
-html_page_top( bug_format_summary( $f_bug_id, SUMMARY_CAPTION ) );
+layout_page_header( bug_format_summary( $f_bug_id, SUMMARY_CAPTION ) );
+layout_page_begin(  );
+
 $g_issue_send = plugin_page( 'issue_send.php' );
 
-// Send reminder Form BEGIN ?>
-<br />
+# Send reminder Form BEGIN 
+?>
+
 <div align="center">
 <form method="post" action="<?php echo $g_issue_send ?>">
 <?php echo form_security_field( 'forward_issue' ) ?>
@@ -15,7 +20,7 @@ $g_issue_send = plugin_page( 'issue_send.php' );
 <table class="width75" cellspacing="1">
 <tr>
 	<td class="form-title" colspan="2">
-		<?php 
+		<?php
 		echo lang_get( 'plugin_forward_title' ) ;
 		echo " => ";
 		echo bug_format_summary( $f_bug_id, SUMMARY_CAPTION );
@@ -39,7 +44,7 @@ $g_issue_send = plugin_page( 'issue_send.php' );
 	<td class="center">
 		<textarea name="body" cols="75" rows="10"></textarea>
 	</td>
-	
+
 </tr>
 <tr>
 	<td class="center" colspan="2">
@@ -48,7 +53,6 @@ $g_issue_send = plugin_page( 'issue_send.php' );
 </tr>
 </table>
 </form>
-<br />
 <table class="width75" cellspacing="1">
 <tr>
 	<td class="center">
@@ -59,5 +63,3 @@ $g_issue_send = plugin_page( 'issue_send.php' );
 </tr>
 </table>
 </div>
-
-<br />

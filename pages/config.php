@@ -1,7 +1,8 @@
 <?php
 	auth_reauthenticate();
 	access_ensure_global_level( config_get( 'manage_plugin_threshold' ) );
-	html_page_top( lang_get( 'plugin_forward_title' ) );
+	layout_page_header( lang_get( 'plugin_forward_title' ) );
+	layout_page_begin();
 	print_manage_menu();
 ?>
 <br/>
@@ -21,7 +22,7 @@
 				<?php echo lang_get( 'plugin_forward_threshold' ) ?>
 			</td>
 			<td class="center">
-				<select name="plugin_forward_threshold">
+				<select name="forward_threshold">
 				<?php print_enum_string_option_list( 'access_levels', plugin_config_get( 'forward_threshold'  ) ) ?>;
 				</select>
 			</td>
@@ -46,4 +47,4 @@
 <form>
 
 <?php
-html_page_bottom1( __FILE__ );
+layout_page_end();

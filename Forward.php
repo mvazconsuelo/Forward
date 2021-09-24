@@ -6,17 +6,17 @@ class ForwardPlugin extends MantisPlugin {
 		$this->name = lang_get( 'plugin_forward_title' );
 		$this->description = lang_get( 'plugin_forward_description' );
 		$this->page = 'config';
-		$this->version = '1.00';
-		$this->requires = array( 'MantisCore' => '1.2.0', );
+		$this->version = '2.02';
+		$this->requires = array( 'MantisCore' => '2.0.0', );
 		$this->author = 'Cas Nuy';
-		$this->contact = '';
-		$this->url = '';
+		$this->contact = 'cas@nuy.info';
+		$this->url = 'http://www.nuy.info';
 	}
 
 	function config() {
 		return array(
 			'forward_address'	=> 'whoever@domain.com',
-			'forward_threshold' => DEVELOPER, 
+			'forward_threshold' => DEVELOPER,
 			);
 	}
 
@@ -32,7 +32,7 @@ class ForwardPlugin extends MantisPlugin {
 			$forward_page ='issue_send_page.php';
 			$forward_page .='&bug_id=';
 			$forward_page .= $bugid;
-			return array( lang_get( 'plugin_forward_title' )=>plugin_page( $forward_page ) );	
+			return array( lang_get( 'plugin_forward_title' )=>plugin_page( $forward_page ) );
 		}
 
 	}
